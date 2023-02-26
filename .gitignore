@@ -1,2 +1,5 @@
 __pycache__
+main.spec
+build
+dist
 input.txt
