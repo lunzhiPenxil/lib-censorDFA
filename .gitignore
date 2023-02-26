@@ -3,3 +3,5 @@ main.spec
 build
 dist
 input.txt
+input_bak.txt
+testscript.py
