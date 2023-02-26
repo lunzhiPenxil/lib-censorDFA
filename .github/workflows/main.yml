@@ -1,0 +1,23 @@
+name: CI-Test
+on:
+  push:
+    branches: [ main ]
+jobs:
+  MainTest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11.0
+        cache: pip
+        architecture: x64
+    - name: Run Test
+      run: |
+        python test.py | tee testResult.log
+    - name: Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: testResult
+        path: ./testResult.log
